@@ -1,0 +1,519 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 In this challenge i use two ai models (gemini, and chatgpt) and will create two different version of crossyroads in the span of an hour total. My strategy is to give a very precise and detailed prompt and make the ai focus on developing the core mechanics of the game first and then adding the details. I also will have the ai try to plan out the challenge before coding it out.\
+\
+GEMINI\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Prompt1: Create a plan to create crossy road. Do not code out anything yet. And ask me any clarifying questions if needed before creating the plan.\
+\
+Build a\'a0Crossy Road-inspired game in Python\'a0that captures the core mechanics and aesthetic of the original as closely as possible, given the time constraint.\
+What is Crossy Road?\
+Crossy Road is an arcade-style game where a character must cross and other hazards. The goal is to get as far as possible without being hit. We aren't going to list out all the features here, because we don't want you to just paste those as the entirety of your prompt.\
+\
+Your Challenge:\'a0Build something that mimics Crossy Road Python as closely as possible within 1 hour. You may wish to aim somewhere between Frogger and Crossy Road, since attempting something fully 3D may make the task substantially more difficult. A 2D implementation is just fine here.\
+\
+\
+Guide to creating a good plan:\
+\
+Choosing Your Scope\
+Think strategically about what to build. Here are some scope options, from minimal to ambitious:\
+\
+Minimal (MVP):\'a0Character on a grid; one type of obstacle; collision detection; score\
+Moderate:\'a0Multiple obstacle types (cars, trains); scrolling terrain; increasing difficulty\
+Ambitious:\'a0Smooth graphics; multiple levels; sound effects; animations\
+Hint: Start with the core mechanics and add features if you have time. A working simple game is better than a broken complex one.\
+\
+Prompting ideas\
+Some of these tips and partial strategies may help, but this is all up to you.\
+Be specific in your requests!\
+Understand the plan:\'a0You might consider asking for a plan first, or providing a detailed plan that you wrote, or just asking the AI to explain key decisions.\
+Ask for structure first:\'a0You might start with the main game loop and class structure, then fill in details\
+Request incrementally:\'a0"Add collision detection for cars" is better than asking for the whole game at once\
+Use follow-ups:\'a0"That's great, now make the cars move faster" or "Add a score display?"\
+Pitfalls to Avoid\
+Tunnel vision:\'a0Don't get absorbed in minor aesthetic bugs. Don't keep adding features after time is up. Stop and submit what you have.\
+Letting the code get wild or disorganized:\'a0Sometimes small bugs are easier to fix yourself, but this is only possible if you understand the code enough to modify and debug it\
+Forgetting the prompt history:\'a0Save this before you close the chat! (You can probably get it back if you do close it, but don't risk it.)\
+Not testing:\'a0Test as you go, and spend the last 5 minutes testing your game to make sure it runs\
+\
+This is the core idea of crossy roads:\
+\'93The essential idea of the game is to get as far as possible across the roads, rivers, grass and train tracks without losing. The player plays as a\'a0mascot\'a0and press arrow keys in the corresponding direction to move the mascot or tap to go forward. Along the way there will be many\'a0obstacles, such as\'a0rivers,\'a0trees,\'a0boulders,\'a0cars, and\'a0trains. To get past these obstacles the player must go past them at the appropriate moment and path to ensure survival or to use other objects to get across rivers such as\'a0logs\'a0and\'a0lily pads. The\'a0Eagle\'a0will come fly up and snatch the mascot provided they stay in the same place too long or move too far back, resulting in a game over.\
+Every square unit moved forward will earn a point. The more units that are moved, the more points that will be received. Note that the player cannot earn points by moving backwards, sideways or moving backwards then repeating the process of moving forwards again. Every 50 points is signified by a clicking sound. This clicking sound gets more and more high pitched as it progresses.\
+Along the way there will be yellow\'a0coins\'a0with red "C's" engraved on the covers representing coins. To obtain these coins the player must simply move the mascot to the coin's location.\'94\
+\
+\
+\
+Prompt2: I want the perspective to be an isometric view, just like the original crossy road so i'd want the library most suitable for that, I want for now also just simple geometric shapes. Yes instand grid snapping is acceptable.\
+\
+\
+\
+Prompt3: yes lets proceed to the next step to make this game better can you replan. Recall how to create a good plan like before. And just to remind you\
+This is the core idea of crossy roads:\
+\'93The essential idea of the game is to get as far as possible across the roads, rivers, grass and train tracks without losing. The player plays as a\'a0mascot\'a0and press arrow keys in the corresponding direction to move the mascot or tap to go forward. Along the way there will be many\'a0obstacles, such as\'a0rivers,\'a0trees,\'a0boulders,\'a0cars, and\'a0trains. To get past these obstacles the player must go past them at the appropriate moment and path to ensure survival or to use other objects to get across rivers such as\'a0logs\'a0and\'a0lily pads. The\'a0Eagle\'a0will come fly up and snatch the mascot provided they stay in the same place too long or move too far back, resulting in a game over.\
+Every square unit moved forward will earn a point. The more units that are moved, the more points that will be received. Note that the player cannot earn points by moving backwards, sideways or moving backwards then repeating the process of moving forwards again. Every 50 points is signified by a clicking sound. This clicking sound gets more and more high pitched as it progresses.\
+Along the way there will be yellow\'a0coins\'a0with red "C's" engraved on the covers representing coins. To obtain these coins the player must simply move the mascot to the coin's location.\'94\
+\
+Here is wikipedias explanation of the game: \'93The objective of\'a0Crossy Road\'a0is to move a character through an endless path of static and moving obstacles as far as possible without hitting any hazards. By default, the character is a chicken that must cross a series of busy roads, rivers and active train tracks, but there are hundreds of other characters, and depending on the character the environment around also changes, with the obstacles varying. For example, when playing as the Astronaut, the environment is space and obstacles include asteroids.\
+In the original mobile version, the player must hop to go forward or swipe the screen in the appropriate direction to move the character horizontally or backwards. Some characters can only be unlocked with cash or in-game currency.\
+There are a number of special characters in addition to regular characters. For example, the\'a0Android\'a0version includes Android Robot, based on the operating system's\'a0Android logo. Other characters include\'a0Doge,\'a0Archie, Dark Lord, the mascot of\'a0Hipster Whale\'a0and #thedress, a female character wearing the\'a0dress of the same name. Various\'a0popular culture\'a0references and games are also included, such as\'a0Forget-Me-Not\'a0and "Emo Goose" voiced by\'a0Phil Lester.\
+The player is able to collect coins, an in-game currency: they are golden-yellow and squarish, with a red C in the middle. These are obtained in-game by collection during gameplay, watching advertisements, completing tasks, collecting a free gift given every few real-time hours, and using legal currency to buy them in various amounts. Coins are counted the top right corner of the screen. One hundred coins can be used for a chance at a new character from a lottery machine.[8]\'a0If the player owns the Piggy Bank mascot, red coins worth five coins each are added to the game, and coins received from free gifts or watching ads are doubled.\'94\
+\
+Prompt 4:i want them to be drawn using colored geometric cubes however i would want them to be detailed and alot better than the objects before. And leave the sound to be "TODO". As for trains, i want to include a traffic light indicator. \
+\
+Prompt 5:please make the time it takes to die from being idle no longer a thing. And also improve the vehicle objects to look better and more detailed. As for the trees and obstacles, can you please reduce the amount of the along with coins. You should also in the code ensure that the randomly generated obstacles atleast always have a way of passing them. Forexample during a test game i just played i spawned in being completed trapped. That shouldn't happen. As for coins, they should be one at max per lane and more rare to come by. \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+CHAT GPT\
+prompt 1: \'93Create a plan to create crossy road. Do not code out anything yet. And ask me any clarifying questions if needed before creating the plan.\
+\
+\
+\
+Build a Crossy Road-inspired game in Python that captures the core mechanics and aesthetic of the original as closely as possible, given the time constraint.\
+\
+What is Crossy Road?\
+\
+Crossy Road is an arcade-style game where a character must cross and other hazards. The goal is to get as far as possible without being hit. We aren't going to list out all the features here, because we don't want you to just paste those as the entirety of your prompt.\
+\
+\
+\
+Your Challenge: Build something that mimics Crossy Road Python as closely as possible within 1 hour. You may wish to aim somewhere between Frogger and Crossy Road, since attempting something fully 3D may make the task substantially more difficult. A 2D implementation is just fine here.\
+\
+\
+\
+\
+\
+Guide to creating a good plan:\
+\
+\
+\
+Choosing Your Scope\
+\
+Think strategically about what to build. Here are some scope options, from minimal to ambitious:\
+\
+\
+\
+Minimal (MVP): Character on a grid; one type of obstacle; collision detection; score\
+\
+Moderate: Multiple obstacle types (cars, trains); scrolling terrain; increasing difficulty\
+\
+Ambitious: Smooth graphics; multiple levels; sound effects; animations\
+\
+Hint: Start with the core mechanics and add features if you have time. A working simple game is better than a broken complex one.\
+\
+\
+\
+Prompting ideas\
+\
+Some of these tips and partial strategies may help, but this is all up to you.\
+\
+Be specific in your requests!\
+\
+Understand the plan: You might consider asking for a plan first, or providing a detailed plan that you wrote, or just asking the AI to explain key decisions.\
+\
+Ask for structure first: You might start with the main game loop and class structure, then fill in details\
+\
+Request incrementally: "Add collision detection for cars" is better than asking for the whole game at once\
+\
+Use follow-ups: "That's great, now make the cars move faster" or "Add a score display?"\
+\
+Pitfalls to Avoid\
+\
+Tunnel vision: Don't get absorbed in minor aesthetic bugs. Don't keep adding features after time is up. Stop and submit what you have.\
+\
+Letting the code get wild or disorganized: Sometimes small bugs are easier to fix yourself, but this is only possible if you understand the code enough to modify and debug it\
+\
+Forgetting the prompt history: Save this before you close the chat! (You can probably get it back if you do close it, but don't risk it.)\
+\
+Not testing: Test as you go, and spend the last 5 minutes testing your game to make sure it runs\
+\
+\
+\
+This is the core idea of crossy roads:\
+\
+\'93The essential idea of the game is to get as far as possible across the roads, rivers, grass and train tracks without losing. The player plays as a mascot and press arrow keys in the corresponding direction to move the mascot or tap to go forward. Along the way there will be many obstacles, such as rivers, trees, boulders, cars, and trains. To get past these obstacles the player must go past them at the appropriate moment and path to ensure survival or to use other objects to get across rivers such as logs and lily pads. The Eagle will come fly up and snatch the mascot provided they stay in the same place too long or move too far back, resulting in a game over.\
+\
+Every square unit moved forward will earn a point. The more units that are moved, the more points that will be received. Note that the player cannot earn points by moving backwards, sideways or moving backwards then repeating the process of moving forwards again. Every 50 points is signified by a clicking sound. This clicking sound gets more and more high pitched as it progresses.\
+\
+Along the way there will be yellow coins with red "C's" engraved on the covers representing coins. To obtain these coins the player must simply move the mascot to the coin's location.\'94\'94\
+\
+\
+Prompt 2: Yes pygame is fine. However I want the perspective to be an isometric view, just like the original crossy road so i'd want the library most suitable for that. The target platform will be mac for now. As for visual style if possible i'd like grid-based hops. As for freatues my top 3 would be cars/roads, rivers+logs, and trains, and coins. As for map behavior i'd like infinite forward procedural generation (endless runner). For controls, i'd like WASD along with arrow keys.\
+\
+Prompt 3: window size i would prefer 1280x720 and for tiles visible please refer to the image provided. I want the perspective as shown in the immage. I want the player to at first be able to move backwards however there should be an eagle/scroll pressure to eventually kill them if they do it too much.\
+\
+Prompt 4: please take a look at how google gemini approached this problem with their code: "import pygame\
+import sys\
+import random\
+import math\
+\
+# --- Constants ---\
+SCREEN_WIDTH = 800\
+SCREEN_HEIGHT = 600\
+TILE_SIZE = 50\
+BLOCK_HEIGHT = 20\
+\
+# Palette\
+WHITE = (240, 240, 255)\
+\
+# Terrain Colors\
+GRASS_TOP = (100, 200, 100); GRASS_SIDE = (80, 180, 80)\
+ROAD_TOP = (100, 100, 100);  ROAD_SIDE = (80, 80, 80)\
+WATER_TOP = (50, 150, 250);  WATER_SIDE = (40, 130, 220)\
+\
+# Voxel Palette\
+COLOR_TRUNK = (139, 69, 19)\
+COLOR_LEAVES = (34, 139, 34)\
+COLOR_LEAVES_LIGHT = (50, 205, 50)\
+COLOR_STONE = (120, 120, 120)\
+COLOR_COIN = (255, 215, 0)\
+COLOR_COIN_C = (200, 0, 0)\
+COLOR_CHICKEN = (255, 255, 255) \
+COLOR_BEAK = (255, 50, 50) # RED BEAK\
+COLOR_COMB = (255, 0, 0)\
+\
+# Car Palette\
+COLOR_TIRE = (20, 20, 20)\
+COLOR_WINDOW = (150, 220, 255)\
+COLOR_HEADLIGHT = (255, 255, 200)\
+\
+# Settings\
+ROAD_WIDTH = 6 \
+WORLD_OFFSET_X = 0 # Centered\
+WORLD_OFFSET_Y = 100\
+\
+# --- Voxel Models ---\
+# Format: (row_offset, col_offset, z_offset, color, w_scale, h_scale)\
+# NOTE: 'row_offset' is the Forward/Back axis. \
+\
+def get_sedan_model(body_color):\
+    m = []\
+    # Wheels\
+    m.append((0.3, 0.25, 0, COLOR_TIRE, 0.25, 0.25))\
+    m.append((0.3, -0.25, 0, COLOR_TIRE, 0.25, 0.25))\
+    m.append((-0.3, 0.25, 0, COLOR_TIRE, 0.25, 0.25))\
+    m.append((-0.3, -0.25, 0, COLOR_TIRE, 0.25, 0.25))\
+    # Body\
+    m.append((0, 0, 0.2, body_color, 0.9, 0.3))\
+    # Cabin\
+    m.append((-0.1, 0, 0.5, COLOR_WINDOW, 0.5, 0.3)) \
+    m.append((-0.1, 0, 0.8, body_color, 0.55, 0.1))\
+    return m\
+\
+MODELS = \{\
+    'player': [\
+        # Body\
+        (0, 0, 0, COLOR_CHICKEN, 0.6, 0.6),\
+        # Head (Shifted slightly forward)\
+        (0.2, 0, 0.6, COLOR_CHICKEN, 0.4, 0.4),\
+        # Red Beak (Sticking out forward)\
+        (0.5, 0, 0.8, COLOR_BEAK, 0.2, 0.1),\
+        # Red Comb\
+        (0.2, 0, 1.1, COLOR_COMB, 0.1, 0.2),\
+        # Eye (Black dot)\
+        (0.35, 0.2, 0.8, (0,0,0), 0.05, 0.05), # Right eye\
+        (0.35, -0.2, 0.8, (0,0,0), 0.05, 0.05),# Left eye\
+    ],\
+    'tree': [\
+        (0, 0, 0, COLOR_TRUNK, 0.3, 0.6),\
+        (0, 0, 0.6, COLOR_LEAVES, 0.8, 0.5),\
+        (0, 0, 1.1, COLOR_LEAVES_LIGHT, 0.5, 0.5)\
+    ],\
+    'rock': [\
+        (0, 0, 0, COLOR_STONE, 0.7, 0.4),\
+        (0.1, 0.1, 0.2, (100,100,100), 0.5, 0.3)\
+    ],\
+    'coin': [\
+        (0, 0, 0.2, COLOR_COIN, 0.3, 0.3),\
+        (0, 0, 0.3, COLOR_COIN_C, 0.1, 0.2)\
+    ]\
+\}\
+\
+# --- Setup ---\
+pygame.init()\
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))\
+pygame.display.set_caption("Crossy Road: Fixed Orientation")\
+clock = pygame.time.Clock()\
+font_small = pygame.font.SysFont(None, 36)\
+font_large = pygame.font.SysFont(None, 72)\
+\
+# --- Classes ---\
+class GameObject:\
+    def __init__(self, row, col, obj_type):\
+        self.row = row \
+        self.col = col\
+        self.type = obj_type\
+        \
+        if obj_type in MODELS: self.model = MODELS[obj_type]\
+        else: self.model = []\
+\
+class Lane:\
+    def __init__(self, row_index, lane_type):\
+        self.row_index = row_index\
+        self.type = lane_type\
+        self.obstacles = []\
+        self.static_objects = []\
+        self.speed = 0\
+        self.direction = 1 \
+        \
+        # Generation Logic\
+        if lane_type == 'grass':\
+            # Safe padding logic\
+            if row_index < 5: return \
+\
+            obstacles_placed = 0\
+            # Rare Coin\
+            if random.random() < 0.10:\
+                c = random.randint(-ROAD_WIDTH, ROAD_WIDTH)\
+                self.static_objects.append(GameObject(row_index, c, 'coin'))\
+\
+            # Trees/Rocks\
+            available_cols = list(range(-ROAD_WIDTH, ROAD_WIDTH + 1))\
+            random.shuffle(available_cols)\
+            for c in available_cols:\
+                if obstacles_placed >= 4: break\
+                # Don't overlap coin\
+                if any(o.col == c for o in self.static_objects): continue\
+\
+                if random.random() < 0.25:\
+                    t = 'tree' if random.random() < 0.7 else 'rock'\
+                    self.static_objects.append(GameObject(row_index, c, t))\
+                    obstacles_placed += 1\
+\
+        elif lane_type == 'road':\
+            self.speed = random.uniform(0.03, 0.08)\
+            self.direction = random.choice([-1, 1])\
+            color = random.choice([(200, 50, 50), (50, 50, 200), (220, 100, 50), (100, 100, 100)])\
+            \
+            # Spawn Cars\
+            num_cars = random.randint(1, 2)\
+            for _ in range(num_cars):\
+                start_col = random.randint(-ROAD_WIDTH, ROAD_WIDTH)\
+                car = GameObject(row_index, start_col, 'car')\
+                car.width = 1\
+                car.model = get_sedan_model(color)\
+                self.obstacles.append(car)\
+\
+        elif lane_type == 'water':\
+            self.speed = random.uniform(0.03, 0.06)\
+            self.direction = random.choice([-1, 1])\
+            for _ in range(random.randint(2, 3)):\
+                start_col = random.randint(-ROAD_WIDTH, ROAD_WIDTH)\
+                log = GameObject(row_index, start_col, 'log')\
+                log.width = random.randint(2, 3) \
+                self.obstacles.append(log)\
+\
+    def update(self):\
+        for obs in self.obstacles:\
+            obs.col += self.speed * self.direction\
+            if self.direction == 1 and obs.col > ROAD_WIDTH + 4: obs.col = -ROAD_WIDTH - 4\
+            elif self.direction == -1 and obs.col < -ROAD_WIDTH - 4: obs.col = ROAD_WIDTH + 4\
+\
+# --- New Projection Engine ---\
+def to_iso(row, col, cam_x, cam_y):\
+    # Rel coords\
+    r_row = row - cam_x\
+    r_col = col - cam_y\
+    \
+    # ROTATED PROJECTION\
+    # Increasing Row (Forward) -> Moves UP screen (Negative Y)\
+    # Increasing Col (Right)   -> Moves RIGHT screen (Positive X)\
+    \
+    # We mix them to keep isometric angle:\
+    iso_x = (r_col + r_row) * (TILE_SIZE // 2)\
+    iso_y = (r_row - r_col) * (TILE_SIZE // 4) * -1 # Multiply by -1 to flip Y axis\
+    \
+    # Center on screen\
+    return iso_x + SCREEN_WIDTH // 2 + WORLD_OFFSET_X, iso_y + SCREEN_HEIGHT // 2 + WORLD_OFFSET_Y\
+\
+def draw_face(surface, color, pts):\
+    pygame.draw.polygon(surface, color, pts)\
+\
+def draw_voxel(surface, x, y, color, w_scale=1.0, h_scale=1.0, height_offset=0):\
+    hw = (TILE_SIZE // 2) * w_scale\
+    hh = (TILE_SIZE // 4) * w_scale\
+    bh = BLOCK_HEIGHT * h_scale\
+    y -= height_offset \
+\
+    c_top = color\
+    c_right = (max(0, color[0]-40), max(0, color[1]-40), max(0, color[2]-40))\
+    c_left = (max(0, color[0]-20), max(0, color[1]-20), max(0, color[2]-20))\
+\
+    # Standard Voxel Drawing\
+    draw_face(surface, c_top, [(x, y - hh * 2), (x + hw, y - hh), (x, y), (x - hw, y - hh)])\
+    draw_face(surface, c_right, [(x + hw, y - hh), (x + hw, y - hh + bh), (x, y + bh), (x, y)])\
+    draw_face(surface, c_left, [(x, y), (x, y + bh), (x - hw, y - hh + bh), (x - hw, y - hh)])\
+\
+def draw_model(surface, model, row, col, cam_x, cam_y, bounce_offset=0, facing_dir=1):\
+    center_x, center_y = to_iso(row, col, cam_x, cam_y)\
+    center_y += bounce_offset\
+    \
+    for voxel in model:\
+        d_row, d_col, dz, color, ws, hs = voxel\
+        \
+        # Adjust offsets based on iso projection for "internal" voxel placement\
+        # d_row is "Forward", d_col is "Side"\
+        \
+        # Calculate screen offset for this voxel part\
+        # We use a simplified projection for the parts to stay "stuck" to the object center\
+        \
+        # Effective Row/Col including the sub-voxel offset\
+        eff_row = row + d_row\
+        eff_col = col + d_col * facing_dir # Flip side offset if facing left\
+        \
+        # Get screen pos of that sub-part\
+        vx, vy = to_iso(eff_row, eff_col, cam_x, cam_y)\
+        vy += bounce_offset\
+        \
+        draw_voxel(surface, vx, vy, color, ws, hs, height_offset=dz * 20)\
+\
+# --- Game State ---\
+lanes = [] \
+player_row = 0; player_col = 0\
+camera_row = 0; camera_col = 0\
+score = 0; coins = 0\
+game_over = False\
+\
+def generate_lane(row_index):\
+    # Safety: First 5 are grass\
+    if row_index < 5: return Lane(row_index, 'grass')\
+    \
+    rnd = random.random()\
+    if rnd < 0.45: return Lane(row_index, 'grass')\
+    elif rnd < 0.75: return Lane(row_index, 'road')\
+    else: return Lane(row_index, 'water')\
+\
+def is_blocked(row, col):\
+    for l in lanes:\
+        if l.row_index == row:\
+            for obj in l.static_objects:\
+                if obj.col == col and obj.type in ['tree', 'rock']: return True\
+    return False\
+\
+def check_coin(row, col):\
+    global coins\
+    for l in lanes:\
+        if l.row_index == row:\
+            for obj in l.static_objects[:]: \
+                if obj.col == col and obj.type == 'coin':\
+                    coins += 1; l.static_objects.remove(obj); return True\
+    return False\
+\
+# Init\
+for i in range(50): lanes.append(generate_lane(i))\
+\
+# --- Main Loop ---\
+running = True\
+while running:\
+    current_time = pygame.time.get_ticks()\
+    \
+    for event in pygame.event.get():\
+        if event.type == pygame.QUIT: running = False\
+        \
+        if event.type == pygame.KEYDOWN and not game_over:\
+            new_r, new_c = player_row, player_col\
+            moved = False\
+            \
+            if event.key == pygame.K_UP: new_r += 1; moved = True\
+            elif event.key == pygame.K_DOWN: new_r -= 1; moved = True\
+            elif event.key == pygame.K_LEFT: new_c -= 1; moved = True\
+            elif event.key == pygame.K_RIGHT: new_c += 1; moved = True\
+            \
+            if -ROAD_WIDTH <= new_c <= ROAD_WIDTH and new_r > camera_row - 2:\
+                if not is_blocked(new_r, new_c):\
+                    player_row, player_col = new_r, new_c\
+                    if moved:\
+                        score = max(score, player_row)\
+                        check_coin(player_row, player_col)\
+        \
+        elif event.type == pygame.KEYDOWN and game_over:\
+            if event.key == pygame.K_SPACE:\
+                # RESET\
+                lanes = []; player_row = 0; player_col = 0; camera_row = 0; score = 0; coins = 0; game_over = False\
+                for i in range(50): lanes.append(generate_lane(i))\
+\
+    if not game_over:\
+        camera_row += (player_row - 4 - camera_row) * 0.1\
+        on_log = False; on_water = False\
+        \
+        for l in lanes:\
+            l.update()\
+            if l.row_index == player_row:\
+                if l.type == 'water': on_water = True\
+                for obs in l.obstacles:\
+                    if obs.col - 0.7 < player_col < obs.col + obs.width - 0.3:\
+                        if l.type == 'road': game_over = True \
+                        elif l.type == 'water': on_log = True; player_col += l.speed * l.direction \
+\
+        if on_water and not on_log: game_over = True \
+        if player_col < -ROAD_WIDTH - 1 or player_col > ROAD_WIDTH + 1: game_over = True\
+\
+    # --- Draw ---\
+    screen.fill(WHITE)\
+    \
+    # REVERSE RENDER ORDER: \
+    # Because Row+ goes UP the screen (Further away visually),\
+    # We must draw HIGH rows (Background) FIRST, then LOW rows (Foreground).\
+    \
+    start_row = int(camera_row) - 2\
+    end_row = int(camera_row) + 22\
+    \
+    # Loop from High (Back) to Low (Front)\
+    for row in range(end_row, start_row - 1, -1):\
+        \
+        # Get/Gen Lane\
+        lane = next((l for l in lanes if l.row_index == row), None)\
+        if not lane:\
+            # We need to gen lanes if they don't exist, but usually we move forward.\
+            # If we look far ahead, we might need to gen.\
+            lane = generate_lane(row)\
+            lanes.append(lane) # Warning: Appending to end might mess up order if list isn't sorted, but we usually append sequentially.\
+            # Better safe: sort lanes? No, just find it.\
+            \
+        # Draw Floor\
+        for col in range(-ROAD_WIDTH, ROAD_WIDTH + 1):\
+            if lane.type == 'grass': c = GRASS_TOP\
+            elif lane.type == 'road': c = ROAD_TOP\
+            elif lane.type == 'water': c = WATER_TOP\
+            draw_voxel(screen, *to_iso(row, col, camera_row, camera_col), c)\
+        \
+        # Draw Static\
+        for obj in lane.static_objects:\
+            bob = math.sin(current_time * 0.005) * 5 if obj.type == 'coin' else 0\
+            draw_model(screen, obj.model, row, obj.col, camera_row, camera_col, bounce_offset=bob)\
+\
+        # Draw Moving\
+        for obs in lane.obstacles:\
+            if lane.type == 'road':\
+                draw_model(screen, obs.model, row, obs.col, camera_row, camera_col, facing_dir=lane.direction)\
+            elif lane.type == 'water':\
+                lc = (139, 69, 19)\
+                for w in range(obs.width):\
+                    lx, ly = to_iso(row, obs.col + w, camera_row, camera_col)\
+                    draw_voxel(screen, lx, ly, lc, 1.0, 0.5, height_offset=-5)\
+\
+        # Draw Player\
+        if row == player_row:\
+            if not game_over:\
+                draw_model(screen, MODELS['player'], row, player_col, camera_row, camera_col, bounce_offset=-10)\
+            else:\
+                 lx, ly = to_iso(row, player_col, camera_row, camera_col)\
+                 draw_voxel(screen, lx, ly, (200,200,200), 1.0, 0.1)\
+\
+    # UI\
+    screen.blit(font_small.render(f"Score: \{score\}", True, (0,0,0)), (10, 10))\
+    screen.blit(font_small.render(f"Coins: \{coins\}", True, (255, 200, 0)), (10, 40))\
+    if game_over:\
+        screen.blit(font_large.render("GAME OVER", True, (255, 50, 50)), (250, 250))\
+        screen.blit(font_small.render("Press SPACE", True, (0, 0, 0)), (320, 310))\
+\
+    pygame.display.flip()\
+    clock.tick(60)\
+\
+pygame.quit()\
+sys.exit()" i like their camera view better than yours as in yours the game is played in the sense where going forward is corresponded with going down in the world, i want the opposite of that and also please take notice to the design of the chicken and the coins those were done real nicely by gemini. Now i do not want you to copy their code but i want you to learn from it. }
